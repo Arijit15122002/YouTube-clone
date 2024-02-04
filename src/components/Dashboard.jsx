@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 
 
-// const API_key = "AIzaSyD-q58ZlTfke8tsH6LsSpIpTnX0kTcGuJQ";
-const API_key = "AIzaSyDIla3-X_K72wxCrwCdAc1Ot8vszIYjHSo"
+const API_key = "AIzaSyD-q58ZlTfke8tsH6LsSpIpTnX0kTcGuJQ";
+// const API_key = "AIzaSyDIla3-X_K72wxCrwCdAc1Ot8vszIYjHSo"
 const videoSearchURL = `https://youtube.googleapis.com/youtube/v3/search?key=${API_key}`
 
 const channelDpURL = `https://youtube.googleapis.com/youtube/v3/channels?key=${API_key}`
@@ -37,16 +37,15 @@ function Dashboard () {
 
 	return (
 		<>
-		<div className='grid grid-cols-3 gap-6 px-4 max:grid-cols-2'>
+			<div className='grid lg:grid-cols-3 gap-6 px-4 sm:grid-cols-2'>
 		{
           data?.map((video) => 
             
 			<div key={video.id.videoId} className='text-white color flex flex-col gap-3'>
-                <div className=''><img src={video.snippet.thumbnails.high.url} alt="" className='h-56'/></div>
-                <div className='flex flex-col gap-3'>
-                  <div className='object-cover'><img src={getChannelDp(video.snippet.channelId)} alt="" className='w-16 h-10 '/></div>
-                  
-                  <div>
+                <div className=''><img src={video.snippet.thumbnails.high.url} alt="" className='w-80 h-48 rounded-2xl'/></div>
+                <div className='flex flex-row gap-3'>
+                  <div className='object-cover'><img src={getChannelDp(video.snippet.channelId)} alt="" className='w-10 h-10 rounded-full'/></div>
+                  <div className='flex flex-col'>
 				  	<div className='text-xl' style={{fontFamily: 'sans-serif',fontSize: '18px'}}>{video.snippet.title}</div>
 					<div className='text-sm font-semibold cursor-pointer text-zinc-400 hover:text-white duration-200 ease-in-out'>{video.snippet.channelTitle}</div>
 					<div className='flex felx-row gap-3 text-sm cursor-pointer ' style={{color: 'rgb(150, 150, 150)'}}>

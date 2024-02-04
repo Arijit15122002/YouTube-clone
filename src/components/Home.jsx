@@ -16,9 +16,11 @@ function Home({isDrawerOpen, setIsDrawerOpen}) {
 			/>
 
 				<div className='flex flex-row h-[calc(100vh-100px)]'> 
+					<div className=''>
 					{
 						isDrawerOpen ? <DrawerComp/> : <DrawerCompRegular/>
 					}
+					</div>
 					<div className={`${isDrawerOpen ? 'w-[80vw]' : 'w-[90vw]'}`}>
 						<SuggestionBar />
 						<Dashboard/>
